@@ -1,0 +1,87 @@
+@use "src/assets/styles/mixins.scss";
+
+.banner {
+    max-width: 1170px;
+    min-height: 650px;
+    display: flex;
+    align-items: center;
+    margin: 0 auto;
+    padding: 2rem 0;
+    color: #fff;
+    text-align: center;
+    background-image: url(../../../../assets/img/banner-bg.png);
+    background-image: -webkit-image-set(
+        url(../../../../assets/img/banner-bg.avif) type("image/avif") 1x,
+        url(../../../../assets/img/banner-bg@2x.avif) type("image/avif") 1.5x,
+        url(../../../../assets/img/banner-bg.webp) type("image/webp") 1x,
+        url(../../../../assets/img/banner-bg@2x.webp) type("image/webp") 1.5x,
+        url(../../../../assets/img/banner-bg.png) type("image/png") 1x,
+        url(../../../../assets/img/banner-bg@2x.png) type("image/png") 1.5x
+    );
+    background-image: image-set(
+        url(../../../../assets/img/banner-bg.avif) type("image/avif") 1x,
+        url(../../../../assets/img/banner-bg@2x.avif) type("image/avif") 1.5x,
+        url(../../../../assets/img/banner-bg.webp) type("image/webp") 1x,
+        url(../../../../assets/img/banner-bg@2x.webp) type("image/webp") 1.5x,
+        url(../../../../assets/img/banner-bg.png) type("image/png") 1x,
+        url(../../../../assets/img/banner-bg@2x.png) type("image/png") 1.5x
+    );
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+
+    @include mixins.media-md {
+        min-height: 500px;
+        background-image: url(../../../../assets/img/banner-bg-md.png);
+        background-image: -webkit-image-set(
+            url(../../../../assets/img/banner-bg-md.avif) type("image/avif") 1x,
+            url(../../../../assets/img/banner-bg-md@2x.avif) type("image/avif") 1.5x,
+            url(../../../../assets/img/banner-bg-md.webp) type("image/webp") 1x,
+            url(../../../../assets/img/banner-bg-md@2x.webp) type("image/webp") 1.5x,
+            url(../../../../assets/img/banner-bg-md.png) type("image/png") 1x,
+            url(../../../../assets/img/banner-bg-md@2x.png) type("image/png") 1.5x
+        );
+        background-image: image-set(
+            url(../../../../assets/img/banner-bg-md.avif) type("image/avif") 1x,
+            url(../../../../assets/img/banner-bg-md@2x.avif) type("image/avif") 1.5x,
+            url(../../../../assets/img/banner-bg-md.webp) type("image/webp") 1x,
+            url(../../../../assets/img/banner-bg-md@2x.webp) type("image/webp") 1.5x,
+            url(../../../../assets/img/banner-bg-md.png) type("image/png") 1x,
+            url(../../../../assets/img/banner-bg-md@2x.png) type("image/png") 1.5x
+        );
+    }
+    @include mixins.media-sm {
+        background-image: url(../../../../assets/img/banner-bg-sm.png);
+        background-image: -webkit-image-set(
+            url(../../../../assets/img/banner-bg-sm.avif) type("image/avif") 1x,
+            url(../../../../assets/img/banner-bg-sm@2x.avif) type("image/avif") 1.5x,
+            url(../../../../assets/img/banner-bg-sm.webp) type("image/webp") 1x,
+            url(../../../../assets/img/banner-bg-sm@2x.webp) type("image/webp") 1.5x,
+            url(../../../../assets/img/banner-bg-sm.png) type("image/png") 1x,
+            url(../../../../assets/img/banner-bg-sm@2x.png) type("image/png") 1.5x
+        );
+        background-image: image-set(
+            url(../../../../assets/img/banner-bg-sm.avif) type("image/avif") 1x,
+            url(../../../../assets/img/banner-bg-sm@2x.avif) type("image/avif") 1.5x,
+            url(../../../../assets/img/banner-bg-sm.webp) type("image/webp") 1x,
+            url(../../../../assets/img/banner-bg-sm@2x.webp) type("image/webp") 1.5x,
+            url(../../../../assets/img/banner-bg-sm.png) type("image/png") 1x,
+            url(../../../../assets/img/banner-bg-sm@2x.png) type("image/png") 1.5x
+        );
+    }
+
+    .banner__container {
+        width: 100%;
+        max-width: calc(380px + 2 * 1rem);
+        margin: 0 auto;
+        padding: 0 1rem;
+    }
+
+    h1 {
+        margin-bottom: 21px;
+    }
+
+    p {
+        margin-bottom: 32px;
+    }
+}

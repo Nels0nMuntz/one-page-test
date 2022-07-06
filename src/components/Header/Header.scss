@@ -1,0 +1,31 @@
+@use 'src/assets/styles/mixins.scss';
+@use 'src/assets/styles/vars.scss';
+
+.header {
+    background-color: vars.$palette-background-paper;
+    .header__grid {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 13px 0;
+    }
+    .header__logo {
+        display: flex;
+        flex-shrink: 0;
+    }
+    .header__btn-box {
+        display: flex;
+        flex-shrink: 0;
+        margin-left: 1rem;
+
+        @include mixins.media-sm {
+            margin-left: 0.875rem;
+        }
+
+        a {
+            &:not(:first-child) {
+                margin-left: 0.625rem;
+            }
+        }
+    }
+}

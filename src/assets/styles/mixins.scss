@@ -1,0 +1,17 @@
+@use './vars.scss';
+
+@mixin media-lg {
+    @media only screen and (max-width: vars.$breakpoints-value-lg-down) {
+        @content;
+    }
+}
+@mixin media-md {
+    @media only screen and (max-width: vars.$breakpoints-value-md-down) {
+        @content;
+    }
+}
+@mixin media-sm {
+    @media only screen and (max-width: vars.$breakpoints-value-sm-down) {
+        @content;
+    }
+}

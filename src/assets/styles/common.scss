@@ -1,0 +1,53 @@
+@use './vars.scss';
+@use './mixins.scss';
+
+body {
+    font-family: "Nunito", sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 26px;
+    color: vars.$palette-text-primary;
+    background-color: vars.$palette-background-default;
+}
+
+.visually-hidden {
+	position: absolute;
+	width: 1px;
+	height: 1px;
+	margin: -1px;
+	border: 0;
+	padding: 0;
+	white-space: nowrap;
+	clip-path: inset(100%);
+	clip: rect(0 0 0 0);
+	overflow: hidden;
+}
+
+.container {
+    --padding-x: 3.75rem;
+
+    width: 100%;
+    max-width: calc(1170px + 2 * var(--padding-x));
+    margin: 0 auto;
+    padding: 0 var(--padding-x);
+
+    @include mixins.media-md {
+        --padding-x: 2rem;
+    }
+    @include mixins.media-sm {
+        --padding-x: 1rem;
+    }
+}
+
+.page-section {
+    margin-top: 8.75rem;
+
+    .typography-heading {
+        margin-bottom: 3.125rem;
+    }
+
+    .btn {
+        margin-top: 3.125rem;
+    }
+}

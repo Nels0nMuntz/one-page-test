@@ -1,0 +1,16 @@
+@use '../vars.scss';
+
+.MuiTooltip-popper {
+    &[data-popper-placement*="bottom"] {
+        margin-top: 21px;
+    }
+    .MuiTooltip-tooltip {
+        padding: 0.1875rem 1rem;
+        font-family: inherit;
+        font-size: inherit;
+        line-height: inherit;
+        font-weight: 400;
+        color: vars.$palette-text-contrast;
+        background-color: vars.$palette-background-tooltip;
+    }
+}

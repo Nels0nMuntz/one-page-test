@@ -1,0 +1,39 @@
+@use 'src/assets/styles/vars.scss';
+@use 'src/assets/styles/mixins.scss';
+
+.get{
+    --gap: 1.8125rem;
+
+    text-align: center;
+
+    @include mixins.media-md {
+        --gap: 1rem;
+    }
+    @include mixins.media-sm {
+        --gap: 1.25rem;
+    }
+
+    .get__list {
+        display: flex;
+        flex-wrap: wrap;
+        margin: 0 calc(var(--gap) / 2 * (-1));
+    }
+
+    .get__item {
+        width: calc(100% / 3 - var(--gap));
+        margin: 0 calc(var(--gap) / 2) var(--gap);
+
+        @include mixins.media-md {
+            width: calc(100% / 2 - var(--gap));
+            margin: 0 calc(var(--gap) / 2) var(--gap);
+        }
+        @include mixins.media-sm {
+            width: 100%;
+        }
+    }
+
+    .btn {
+        margin-left: auto;
+        margin-right: auto;
+    }
+}

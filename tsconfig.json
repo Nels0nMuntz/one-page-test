@@ -1,0 +1,55 @@
+{
+    "include": [
+        "src/*", "src/store/store.ts"
+    ],
+    "exclude": [
+        "node_modules",
+        "build"
+    ],
+    "compilerOptions": {
+        "outDir": "./dist/",
+        "module": "es6",
+        "target": "es5",
+        "jsx": "react",
+        "baseUrl": "src",
+        "moduleResolution": "Node",
+        "allowJs": true,
+        "strict": true,
+        "sourceMap": true,
+        "noImplicitAny": true,
+        "esModuleInterop": true,
+        "allowSyntheticDefaultImports": true,
+        "paths": {
+            "assets/*": [
+                "assets/*"
+            ],
+            "components/*": [
+                "components/*"
+            ],
+            "containers/*": [
+                "containers/*"
+            ],
+            "models/*": [
+                "models/*"
+            ],
+            "pages/*": [
+                "pages/*"
+            ],
+            "features/*": [
+                "features/*"
+            ],
+            "store/*": [
+                "store/*"
+            ],
+            "api/*": [
+                "api/*"
+            ],
+            "hooks/*": [
+                "hooks/*"
+            ],
+            "hocs/*": [
+                "hocs/*"
+            ]
+        }
+    }
+}
