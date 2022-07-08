@@ -1,14 +1,14 @@
 import React from 'react';
 
 import { useAppDispatch, useAppSelector } from 'hooks';
-import { getUserListThunk } from 'store/home';
+import { getUserListThunk, selectUsers } from 'store/home';
 import { GetSection } from '../../components/GetSection/GetSection';
 
 export const GetContainer = () => {
 
   const dispatch = useAppDispatch();
 
-  const { page, count, list, hasMore, status } = useAppSelector(state => state.home.users);
+  const { page, count, list, hasMore, status } = useAppSelector(selectUsers);
 
   const onLoadUsers = () => {
     dispatch(getUserListThunk({ page, count }));

@@ -3,6 +3,7 @@ import { createAsyncThunk } from '@reduxjs/toolkit';
 
 import { homeService } from 'api';
 import { GetUserListRequestModel } from 'models';
+import { openNotificationAction } from 'store/notification';
 import {
     setUserListAction,
     setHasMoreAction,
@@ -26,10 +27,13 @@ export const getUserListThunk = createAsyncThunk<void, GetUserListRequestModel>(
             } else {
                 thunkApi.dispatch(setHasMoreAction({ hasMore: false }));
             }
-        } catch (error) {
-            console.log({error});
-            
-            thunkApi.dispatch(setUsersStatusAction({ status: 'error' }));
+        } catch (error: any) { 
+            console.log({error});     
+            thunkApi.dispatch(setUsersStatusAction({ status: 'error' }));          
+            thunkApi.dispatch(openNotificationAction({ 
+                message: error.message,
+                variant: 'error',
+             }));
         };
     }
 );

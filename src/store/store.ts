@@ -1,11 +1,13 @@
 import { configureStore } from '@reduxjs/toolkit';
 
-import { homeReducer } from './home/reducer';
+import { homeReducer } from './home';
+import { notificationReducer } from './notification';
 
 
 export const store = configureStore({
     reducer: {
-        home: homeReducer
+        home: homeReducer,
+        notification: notificationReducer,
     }
 });
 

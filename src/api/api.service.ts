@@ -8,22 +8,18 @@ const config = {
 };
 
 const httpGet = <T extends ResponseBaseModel>(endpoint: string) => {
-    return fetch(`${config.api}${endpoint}`, {    
+    return fetch(`${config.api}${endpoint}`, {
         ...config.options,
     })
         .then(response => handleResponse(response))
         .then(data => data as T)
-        .catch(error => {
-            console.log({error});
-            throw Error(error);
-        })
+        .catch(error => { throw error })
 };
 
 const handleResponse = (response: Response) => {
     if (response.status === 200) {
         return response.json();
     } else {
-        console.log({response});
         throw Error("Something went wrong");
     }
 };

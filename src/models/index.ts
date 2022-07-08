@@ -5,6 +5,7 @@ export * from "./common/paginationParams.model";
 export * from "./common/responseBase.model";
 export * from "./common/PostForm.model";
 export * from "./common/status.model";
+export * from "./common/notification.model";
 
 //request
 export * from "./request/getUserListRequest.model";
