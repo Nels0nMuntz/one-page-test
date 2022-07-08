@@ -1,11 +1,11 @@
 import { createReducer } from '@reduxjs/toolkit';
 
-import { UserModel } from 'models';
+import { Status, UserModel } from 'models';
 import { 
     setUserListAction, 
     setHasMoreAction, 
     setUsersPageAction,
-    setUsersLoadingAction,
+    setUsersStatusAction,
 } from './actions';
 
 
@@ -16,16 +16,18 @@ interface HomeState {
         hasMore: boolean;
         loading: boolean;
         list: UserModel[];
+        status: Status;
     }
 };
 
 const initialState: HomeState = {
     users: {
         page: 1,
-        count: 24,
+        count: 6,
         hasMore: true,
         loading: false,
         list: [],
+        status: 'initial',
     },
 };
 
@@ -40,8 +42,8 @@ export const homeReducer = createReducer(initialState, builder => {
         .addCase(setUsersPageAction, (state, action) => {
             state.users.page = action.payload.page
         })
-        .addCase(setUsersLoadingAction, (state, action) => {
-            state.users.loading = action.payload.loading
+        .addCase(setUsersStatusAction, (state, action) => {
+            state.users.status = action.payload.status
         })
         .addCase(setHasMoreAction, (state, action) => {
             state.users.hasMore = action.payload.hasMore

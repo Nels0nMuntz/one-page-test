@@ -4,6 +4,7 @@ import Avatar from '@mui/material/Avatar';
 
 import { UserModel } from 'models';
 import { TextWithTooltip } from 'components';
+import fallbackImage from '../../assets/img/avatar-fallback.jpg';
 
 import './Card.scss';
 
@@ -17,7 +18,9 @@ export const Card: React.FC<CardProps> = ({ name, email, phone, position, photo 
     return (
         <div className="card">
             <Stack spacing={2.5} alignItems="center">
-                <Avatar src={photo} alt={name} sx={{ width: 70, height: 70 }} />
+                <Avatar src={photo} alt={name} sx={{ width: 70, height: 70 }}>
+                    <img src={fallbackImage} alt={name} />
+                </Avatar>
                 <TextWithTooltip className="card__text">{name}</TextWithTooltip>
                 <div className="card__info">
                     <TextWithTooltip className="card__text">{position}</TextWithTooltip>

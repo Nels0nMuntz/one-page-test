@@ -24,8 +24,7 @@ const handleResponse = (response: Response) => {
         return response.json();
     } else {
         console.log({response});
-        
-        // throw Error(response.);
+        throw Error("Something went wrong");
     }
 };
 

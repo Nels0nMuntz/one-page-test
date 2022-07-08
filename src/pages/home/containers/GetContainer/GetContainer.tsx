@@ -8,7 +8,7 @@ export const GetContainer = () => {
 
   const dispatch = useAppDispatch();
 
-  const { page, count, list, loading, hasMore } = useAppSelector(state => state.home.users);
+  const { page, count, list, hasMore, status } = useAppSelector(state => state.home.users);
 
   const onLoadUsers = () => {
     dispatch(getUserListThunk({ page, count }));
@@ -18,8 +18,8 @@ export const GetContainer = () => {
 
   return (
     <GetSection
+      status={status}
       users={list}
-      loading={loading}
       showButton={hasMore}
       onLoadUsers={onLoadUsers}
     />

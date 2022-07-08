@@ -1,0 +1,1 @@
+export type Status = 'initial' | 'running' | 'success' | 'error';

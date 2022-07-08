@@ -2,7 +2,7 @@ import React from 'react';
 
 import { Header } from 'components';
 import { Banner } from './components';
-import { GetContainer } from './containers';
+import { GetContainer, PostContainer } from './containers';
 
 
 export const HomePage = () => {
@@ -12,6 +12,7 @@ export const HomePage = () => {
             <main>
                 <Banner />
                 <GetContainer/>
+                <PostContainer/>
             </main>
         </div>
     );

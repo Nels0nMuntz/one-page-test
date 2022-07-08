@@ -7,19 +7,19 @@ import {
     setUserListAction,
     setHasMoreAction,
     setUsersPageAction,
-    setUsersLoadingAction,
+    setUsersStatusAction,
 } from './actions';
 
 
 export const getUserListThunk = createAsyncThunk<void, GetUserListRequestModel>(
     "GET_USER_LIST",
     async ({ page, count }, thunkApi) => {
-        thunkApi.dispatch(setUsersLoadingAction({ loading: true }));
         try {
+            thunkApi.dispatch(setUsersStatusAction({ status: 'running' }));
             const data = await homeService.getUserList({ page, count });
             const users = data.users;
             thunkApi.dispatch(setUserListAction({ users }));
-            thunkApi.dispatch(setUsersLoadingAction({ loading: false }));
+            thunkApi.dispatch(setUsersStatusAction({ status: 'success' }));
 
             if (data.total_pages > data.page) {
                 thunkApi.dispatch(setUsersPageAction({ page: ++(data.page) }));
@@ -27,7 +27,9 @@ export const getUserListThunk = createAsyncThunk<void, GetUserListRequestModel>(
                 thunkApi.dispatch(setHasMoreAction({ hasMore: false }));
             }
         } catch (error) {
-            thunkApi.dispatch(setUsersLoadingAction({ loading: false }));
+            console.log({error});
+            
+            thunkApi.dispatch(setUsersStatusAction({ status: 'error' }));
         };
     }
 );

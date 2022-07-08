@@ -24,10 +24,12 @@ button.btn {
     }
 
     &.btn_disabled {
+        color: vars.$palette-text-contrast;
         background-color: vars.$palette-action-disabled;
+        cursor: auto;
     }
 
-    &.btn_loading {
+    &.btn_loading:not(.btn_disabled) {
         color: vars.$palette-text-secondary;
         cursor: auto;
 
@@ -42,5 +44,6 @@ button.btn {
         left: 50%;
         transform: translate(-50%, -50%);
         display: flex;
+        color: vars.$palette-secondary-main;
     }
 }

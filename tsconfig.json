@@ -1,6 +1,6 @@
 {
     "include": [
-        "src/*", "src/store/store.ts"
+        "src/*"
     ],
     "exclude": [
         "node_modules",

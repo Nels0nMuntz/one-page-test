@@ -16,14 +16,14 @@ export const PrimaryButton: React.FC<PrimaryButtonProps> = ({ type, disabled, lo
     return (
         <Button
             type={type}
-            disabled={loading || disabled}
-            className={`btn ${loading ? 'btn_loading' : ''}`}
+            disabled={loading}
+            className={`btn ${loading ? 'btn_loading' : ''} ${disabled ? 'btn_disabled' : ''}`}
             onClick={onClick}
         >
             {children}
             {loading && (
                 <div className="btn__progress">
-                    <CircularProgress size={20} />
+                    <CircularProgress size={20} color="inherit" />
                 </div>
             )}
         </Button>

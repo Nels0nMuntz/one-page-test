@@ -1,0 +1,137 @@
+@use "src/assets/styles/vars.scss";
+
+.post {
+    padding-bottom: 6.25rem;
+
+    .post-form {
+        display: flex;
+        flex-direction: column;
+        max-width: 380px;
+        margin: 0 auto;
+    }
+
+    .post-form__field {
+        .MuiTextField-root {
+            width: 100%;
+        }
+        .MuiOutlinedInput-root {
+            .MuiOutlinedInput-notchedOutline {
+                border-color: vars.$palette-border;
+            }
+            &:hover {
+                .MuiOutlinedInput-notchedOutline {
+                    border-color: vars.$palette-border;
+                }
+            }
+            &.Mui-focused {
+                .MuiOutlinedInput-notchedOutline {
+                    border-color: vars.$palette-border;
+                    border-width: 1px;
+                }
+            }
+            &.Mui-error {
+                .MuiOutlinedInput-notchedOutline {
+                    border-color: vars.$palette-action-error;
+                }
+            }
+        }
+        .MuiInputBase-input {
+            height: auto;
+            padding: 0.875rem 1rem;
+            font-size: 1rem;
+
+            .MuiOutlinedInput-notchedOutline {
+                border-color: vars.$palette-border;
+            }
+        }
+        .MuiInputLabel-root {
+            font-size: 1rem;
+            color: vars.$palette-text-secondary;
+            &.Mui-focused {
+                color: vars.$palette-text-secondary;
+            }
+            &.Mui-error {
+                color: vars.$palette-action-error;
+            }
+        }
+        .MuiFormHelperText-root {
+            min-height: 0.875rem;
+            font-size: 0.75rem;
+            line-height: 0.875rem;
+            margin: 0.25rem 1rem 0;
+            color: vars.$palette-text-secondary;
+            &.Mui-error {
+                color: vars.$palette-action-error;
+            }
+        }
+
+        &.post-form__field_text {
+            margin-bottom: 1.5625rem;
+        }
+        &.post-form__field_radio {
+            margin-bottom: 2.8125rem;
+            .MuiFormLabel-root {
+                font-size: 1rem;
+                line-height: 1.625rem;
+                color: vars.$palette-text-primary;
+                margin-bottom: 0.6875rem;
+            }
+            .MuiFormControlLabel-root {
+                margin-left: -0.3125rem;
+                &:not(:last-child) {
+                    margin-bottom: 0.4375rem;
+                }
+            }
+            .MuiRadio-root {
+                padding: 0.3125rem;
+            }
+            .MuiTypography-root {
+                font-size: inherit;
+                line-height: inherit;
+                color: inherit;
+                margin-left: 0.4375rem;
+            }
+        }
+        &.post-form__field_upload {
+            margin-bottom: 2.25rem;
+        }
+    }
+
+    .radio-icon {
+        position: relative;
+        width: 20px;
+        height: 20px;
+        border: 1px solid vars.$palette-border;
+        border-radius: 50%;
+
+        &.radio-icon_checked {
+            border-color: vars.$palette-secondary-main;
+            &::before {
+                content: "";
+                width: 10px;
+                height: 10px;
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                border-radius: 50%;
+                background-color: vars.$palette-secondary-main;
+            }
+        }
+    }
+
+    &.page-section .btn {
+        align-self: center;
+        margin-top: 0;
+        &:disabled {
+            pointer-events: auto;
+        }
+    }
+
+    .post__success {
+        width: 328px;
+        height: 290px;
+        margin: 0 auto;
+        background: url(../../../../assets/img/success-post.svg) no-repeat center / contain;
+    }
+}

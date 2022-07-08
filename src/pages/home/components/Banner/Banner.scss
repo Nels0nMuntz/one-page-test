@@ -1,3 +1,4 @@
+@use "src/assets/styles/vars.scss";
 @use "src/assets/styles/mixins.scss";
 
 .banner {
@@ -83,5 +84,9 @@
 
     p {
         margin-bottom: 32px;
+    }
+
+    .btn {
+        color: vars.$palette-text-primary;
     }
 }
