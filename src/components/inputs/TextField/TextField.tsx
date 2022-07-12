@@ -21,7 +21,6 @@ export const TextBox: React.FC<TextBoxProps> = ({ name, label, value, helperText
             value={value}
             helperText={helperText}
             error={!isValid && isTouched}
-            autoComplete="off"
             onChange={onChange}
             onBlur={onBlur}
         />

@@ -49,6 +49,9 @@
             ],
             "hocs/*": [
                 "hocs/*"
+            ],
+            "constants/*": [
+                "constants/*"
             ]
         }
     }

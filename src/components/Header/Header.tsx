@@ -38,8 +38,8 @@ export const Header: React.FC = () => {
                         <span className="visually-hidden">Home page.</span>
                     </a>
                     <div className="header__btn-box">
-                        <Link to="/">Users</Link>
-                        <Link to="/">Sign up</Link>
+                        <Link href="#users">Users</Link>
+                        <Link href="#signup">Sign up</Link>
                     </div>
                 </div>
             </div>

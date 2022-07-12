@@ -8,10 +8,10 @@ export const GetContainer = () => {
 
   const dispatch = useAppDispatch();
 
-  const { page, count, list, hasMore, status } = useAppSelector(selectUsers);
+  const { page, list, hasMore, status } = useAppSelector(selectUsers);
 
   const onLoadUsers = () => {
-    dispatch(getUserListThunk({ page, count }));
+    dispatch(getUserListThunk({ page }));
   };
 
   React.useEffect(onLoadUsers, []);

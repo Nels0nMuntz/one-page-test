@@ -16,39 +16,44 @@ interface GetSectionProps {
 
 export const GetSection: React.FC<GetSectionProps> = ({ status, users, showButton, onLoadUsers }) => {
 
-    const contentLoading = status === 'initial' || status === 'running';
-
-    const userList = React.useMemo(() => {
-        return users.map(({ id, name, email, position, phone, photo }) => (
-            <div className="get__item" key={id}>
-                <Card
-                    name={name}
-                    email={email}
-                    position={position}
-                    phone={phone}
-                    photo={photo}
-                />
-            </div>
-        ))
-    }, [users]);
+    const id = React.useId()
+    const initialStatus = status === 'initial';
+    const runningStatus = status === 'running';
 
     return (
-        <section className="get page-section">
+        <section id="users" className="get page-section">
             <div className="container">
                 <Heading variant="h2">Working with GET request</Heading>
-                {contentLoading && (
+                {initialStatus && (
                     <div className="get__progress">
-                        <CircularProgress size={48} color='inherit'/>
+                        <CircularProgress size={48} color='inherit' />
                     </div>
                 )}
-                <div className="get__list">{userList}</div>
-                {showButton && (
-                    <Button
-                        type="button"
-                        onClick={onLoadUsers}
-                    >
-                        Show more
-                    </Button>
+                {!!users.length && (
+                    <React.Fragment>
+                        <div className="get__list">
+                            {users.map(({ id: userId, name, email, position, phone, photo }) => (
+                                <div className="get__item" key={`${id}-${userId}`}>
+                                    <Card
+                                        name={name}
+                                        email={email}
+                                        position={position}
+                                        phone={phone}
+                                        photo={photo}
+                                    />
+                                </div>
+                            ))}
+                        </div>
+                        {(showButton) && (
+                            <Button
+                                type="button"
+                                loading={runningStatus}
+                                onClick={onLoadUsers}
+                            >
+                                Show more
+                            </Button>
+                        )}
+                    </React.Fragment>
                 )}
             </div>
         </section>

@@ -1,34 +1,18 @@
 import React from 'react';
 import { useFormik } from 'formik';
 
+import { PostForm, PostFormRequired } from 'models';
+import { useAppDispatch, useAppSelector } from 'hooks';
 import { PostSection } from '../../components/PostSection/PostSection'
-import { PostForm } from 'models';
+import { errorMessages as messages, regExpPatterns } from 'constants/index';
+import { 
+    getPositionsListThunk, 
+    selectPositionsList, 
+    selectSubmitStatus, 
+    addUserThunk,
+    setUsersSubmitStatusAction 
+} from 'store/home';
 
-
-const messages = {
-    empty: "Field is required",
-    name: { 
-        length: "Name should contain 2-60 characters"
-    },
-    email: {
-        error: "E-mail is incorrect",
-        length: "E-mail should contain 2-100 characters"
-    },
-    phone: {
-        error: 'Phone nummber should contain 18 characters',
-        length: 'Phone nummber is incorrect',
-    },
-    photo: {
-        type: 'Invalid file type',
-        size: 'File is too large',
-        resolution: 'Image resolution should be at least 70x70px',
-    }
-};
-
-const regExpPatterns = {
-    email: /^(?:[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*|"(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21\x23-\x5b\x5d-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])*")@(?:(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?|\[(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?|[a-z0-9-]*[a-z0-9]:(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21-\x5a\x53-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])+)\])$/,
-    phone: /[\+]{0,1}380([0-9]{9})$/,
-};
 
 const validate = (values: PostForm) => {
     const { name, email, phone, photo } = values;
@@ -70,6 +54,9 @@ const validate = (values: PostForm) => {
 
 export const PostContainer = () => {
 
+    const dispatch = useAppDispatch()
+    const positionsList = useAppSelector(selectPositionsList);
+    const submitStatus = useAppSelector(selectSubmitStatus);
     const form = useFormik<PostForm>({
         initialValues: {
             name: "",
@@ -80,8 +67,8 @@ export const PostContainer = () => {
         },
         validate: validate,
         onSubmit: values => {
-            console.log({values})
-        }
+            dispatch(addUserThunk(values as PostFormRequired));
+        },
     });   
 
     const getFieldProps = (field: keyof PostForm) => form.getFieldProps(field);
@@ -91,11 +78,17 @@ export const PostContainer = () => {
     };
     const onSubmit = form.handleSubmit;
 
+    React.useEffect(() => {
+        dispatch(getPositionsListThunk());
+    }, []);
+
     return (
         <PostSection
             touched={form.touched}
             errors={form.errors}
             isValidForm={form.isValid && form.dirty}
+            positionsList={positionsList}
+            submitStatus={submitStatus}
             getFieldProps={getFieldProps}
             onChangeUploadField={onChangeUploadField}
             onSubmit={onSubmit}

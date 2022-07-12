@@ -5,3 +5,7 @@ export interface PostForm {
     position_id: number;
     photo: File | null,
 };
+
+export type PostFormRequired = PostForm & {
+    photo: File;
+};
