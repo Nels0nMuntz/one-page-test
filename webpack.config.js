@@ -63,7 +63,7 @@ module.exports = {
     entry: path.resolve(__dirname, 'src', 'index.tsx'),
     output: {
         filename: isDev ? "[name].bundle.js" : "[name].[hash].bundle.js",
-        path: path.resolve(__dirname, "dist"),
+        path: path.resolve(__dirname, "build"),
         publicPath: "/",
         clean: true,
     },
@@ -118,7 +118,7 @@ module.exports = {
             patterns: [
                 {
                     from: path.resolve(__dirname, "public/favicon.ico"),
-                    to: path.resolve(__dirname, "dist"),
+                    to: path.resolve(__dirname, "build"),
                 }
             ]
         }),
