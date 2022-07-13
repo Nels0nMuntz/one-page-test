@@ -6,7 +6,7 @@
   },
   "description": "",
   "main": "index.js",
-  "homepage": "https://Nels0nMuntz.github.io/one-page-test/",
+  "homepage": "https://nels0nmuntz.github.io/one-page-test/",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "cross-env NODE_ENV=development webpack serve",
