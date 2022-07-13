@@ -6,10 +6,13 @@
   },
   "description": "",
   "main": "index.js",
+  "homepage": "https://Nels0nMuntz.github.io/one-page-test",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "cross-env NODE_ENV=development webpack serve",
-    "build": "cross-env NODE_ENV=production webpack"
+    "build": "cross-env NODE_ENV=production webpack",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "repository": {
     "type": "git",
@@ -21,7 +24,6 @@
   "bugs": {
     "url": "https://github.com/Nels0nMuntz/one-page-test/issues"
   },
-  "homepage": "https://github.com/Nels0nMuntz/one-page-test#readme",
   "devDependencies": {
     "@types/react": "^18.0.14",
     "@types/react-dom": "^18.0.5",
@@ -29,6 +31,7 @@
     "css-loader": "^6.7.1",
     "css-minimizer-webpack-plugin": "^4.0.0",
     "dotenv": "^16.0.1",
+    "gh-pages": "^4.0.0",
     "html-webpack-plugin": "^5.5.0",
     "mini-css-extract-plugin": "^2.6.1",
     "sass": "^1.53.0",
